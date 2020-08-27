@@ -70,7 +70,7 @@ class Guard
             }
 
             return $this->supportsTokens($accessToken->tokenable) ? $accessToken->tokenable->withAccessToken(
-                tap($accessToken->forceFill(['last_used_at' => now()]))->save()
+                config('sanctum.tap_last_used_at_on_consume') ? tap($accessToken->forceFill(['last_used_at' => now()]))->save() : $accessToken
             ) : null;
         }
     }

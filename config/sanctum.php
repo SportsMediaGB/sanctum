@@ -44,4 +44,6 @@ return [
         'encrypt_cookies' => App\Http\Middleware\EncryptCookies::class,
     ],
 
+    'tap_last_used_at_on_consume' => false,
+
 ];
